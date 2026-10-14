@@ -808,9 +808,12 @@ export function trimBeforeFirstAnswer(logText: string): string {
     return logText;
   }
   const laterIndex = logText.lastIndexOf(marker);
-  const reattachIndex = logText.indexOf("[reattach]", index + marker.length);
+  const afterFirstAnswer = index + marker.length;
+  // Manual reattach writes "[reattach]"; the background retry loop writes "[auto-reattach]".
+  const reattachOffset = logText.slice(afterFirstAnswer).search(/\[(?:auto-)?reattach\]/);
+  const reattachIndex = reattachOffset === -1 ? -1 : afterFirstAnswer + reattachOffset;
   if (laterIndex > index && reattachIndex > index && reattachIndex < laterIndex) {
-    const firstCapture = logText.slice(index + marker.length, reattachIndex);
+    const firstCapture = logText.slice(afterFirstAnswer, reattachIndex);
     if (isDeepResearchToolCallPlaceholder(firstCapture)) {
       return logText.slice(laterIndex);
     }

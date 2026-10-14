@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- CLI: skip a stale Deep Research tool-call wrapper before an `[auto-reattach]` answer, as already done before a `[reattach]` answer, so `oracle session` shows the recovered report and does not reattach the completed session again; thanks @devYRPauli.
+
 ## 0.21.5 - 2026-10-11
 
 **Highlights:** Reliable Chrome recovery and cleanup, faster file bundles, and the source-map-js security fix (CVE-2026-93749).
