@@ -809,7 +809,7 @@ export function trimBeforeFirstAnswer(logText: string): string {
   }
   const laterIndex = logText.lastIndexOf(marker);
   const afterFirstAnswer = index + marker.length;
-  // Manual reattach writes "[reattach]"; the background retry loop writes "[auto-reattach]".
+  // Reattach writers log "[reattach]"; the session runner's auto-reattach loop logs "[auto-reattach]".
   const reattachOffset = logText.slice(afterFirstAnswer).search(/\[(?:auto-)?reattach\]/);
   const reattachIndex = reattachOffset === -1 ? -1 : afterFirstAnswer + reattachOffset;
   if (laterIndex > index && reattachIndex > index && reattachIndex < laterIndex) {

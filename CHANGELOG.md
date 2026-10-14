@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- CLI: skip a stale Deep Research tool-call wrapper before an `[auto-reattach]` answer, as already done before a `[reattach]` answer, so `oracle session` shows the recovered report and does not reattach the completed session again; thanks @devYRPauli.
+- CLI: skip a stale Deep Research tool-call wrapper before an `[auto-reattach]` answer, as already done before a `[reattach]` answer, so `oracle session` shows only the recovered report; thanks @devYRPauli.
 
 ## 0.21.5 - 2026-10-11
 
